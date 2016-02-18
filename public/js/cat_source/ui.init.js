@@ -281,3 +281,27 @@ UI.SegmentFooter.registerTab({
         return true;
     }
 });
+
+UI.SegmentFooter.registerTab({
+    code                : 'ct',
+    tab_class           : 'custom',
+    label               : 'Custom Tab',
+    activation_priority : 60,
+    tab_position        : 60,
+    is_enabled          : function(segment) {
+        return true;
+    },
+    tab_markup          : function(segment) {
+        return this.label ;
+    },
+    content_markup      : function(segment) {
+        return  '<div class="left">' +
+                  '<h3>MateCat issues on GitHub</h3>' +
+                  '<div class="issues"></div>' +
+                '</div>' +
+                '<div class="right"></div>' ;
+    },
+    is_hidden           : function(segment) {
+        return false;
+    }
+});

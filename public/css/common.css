@@ -1,4 +1,4 @@
-/* 
+/*
 Document:       common
 Created:         7-ago-2013, 14.49.42
 Author:          andreamartines
@@ -20,7 +20,7 @@ body
 font-family: calibri, Arial, Helvetica, sans-serif;
 font-size: 16px;
 }
-	
+
     @media (max-width: 500px) {
 
 	    body
@@ -512,7 +512,7 @@ border-bottom: 3px solid #1B5D7B!important;
 
     }
 
-    .topMenu ul 
+    .topMenu ul
     {
 	    margin: 0;
 	    padding: 0;
@@ -540,7 +540,7 @@ border-bottom: 3px solid #1B5D7B!important;
 .topMenu ::-webkit-scrollbar-thumb {
 
 	background:#ccc url(../img/bgscrollbar.png) center center no-repeat;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 /*end-scrollbar*/
 /* mgmt panel  */
@@ -605,7 +605,7 @@ padding: 6px 0;
 color: #fff;
 }
 
- 
+
 .dropdown-icon { /* Little arrow */
 	width: 23px;
 height: 21px;
@@ -626,20 +626,20 @@ margin-top: -1px;
 
 
 /* No CSS3 support */
- 
+
 .no-opacity       .wrapper-dropdown-1 .dropdown,
 .no-pointerevents .wrapper-dropdown-1 .dropdown {
     display: none;
     opacity: 1; /* If opacity support but no pointer-events support */
     pointer-events: auto; /* If pointer-events support but no pointer-events support */
 }
- 
+
 .no-opacity       .wrapper-dropdown-1.active .dropdown,
 .no-pointerevents .wrapper-dropdown-1.active .dropdown {
     display: block;
 }
 
-.needtobelogged {height:150px; text-align:center; padding:15px 5px; 
+.needtobelogged {height:150px; text-align:center; padding:15px 5px;
 color:#333;}
 
 
@@ -658,7 +658,7 @@ color:#333;}
 
     }
 
-    .topMenu ul li 
+    .topMenu ul li
     {
 
 
@@ -691,7 +691,7 @@ color:#333;}
     .currSegment a
 
     {
-	    background: #efefef;  
+	    background: #efefef;
 	    border-top: 1px solid #ccc;
 	    box-shadow: inset 0px 1px #fff;
 	    -moz-box-shadow: inset 0px 1px #fff;
@@ -703,7 +703,7 @@ color:#333;}
   .topMenu ul li a:hover
   {
 	  text-decoration: underline;
-}  
+}
 
 
 
@@ -732,7 +732,7 @@ color:#333;}
     top: -90px;
 }
 
-.tooltip span { 
+.tooltip span {
     width: 200px;
     height: auto;
     line-height: 22px;
@@ -875,7 +875,7 @@ color:#333;}
 	    z-index: 99999999999999;
 	    opacity: 0.6;
     }
-	
+
 	.mgmt-popup-outer {
 		z-index: 10;
 	}
@@ -1141,7 +1141,7 @@ text-align: right;
 	    font-size: 12px;
     }
     .popup a.anonymous:visited,
-    .popup a.anonymous:active 
+    .popup a.anonymous:active
     {
 	    color: black;
     }
@@ -1211,13 +1211,13 @@ margin-left: 10px;
     .popup .x-popup:hover, .slide-panel .x-popup:hover, .x-popup2:hover {
         color:red;
     }
-	
+
 	 .mgmt-panel .x-popup {
-		right:130px; 
+		right:130px;
 		margin-top: 10px;
 	 }
-	
-	
+
+
     .uploadtm.disabled {
     	background: #09beec!important;
     }
@@ -1229,7 +1229,7 @@ margin-left: 10px;
     .slide-panel .btn-ok,
     .slide-panel .btn-cancel,
     .uploadtm.disabled,
-    .download-manage.btn-ok 
+    .download-manage.btn-ok
     {
 	    color: #fff;
 	    background: #09beec;
@@ -1309,7 +1309,7 @@ float: none!important;
 
 .mgmt-panel-tm .btn-ok:hover,
 .mgmt-panel-gl .btn-ok:hover,
-.popup .btn-ok:hover, 
+.popup .btn-ok:hover,
 .popup .btn-cancel:hover,
 .slide-panel .btn-ok:hover,
 .slide-panel .btn-cancel:hover
@@ -1330,7 +1330,7 @@ float: none!important;
 	    -webkit-box-shadow: inset 0 0 1px 1px #888;
 	    box-shadow: inset 0 0 1px 1px #888;
     }
-	
+
 
     .popup .btn-ok.right,
     .popup .btn-cancel.right,
@@ -1340,7 +1340,7 @@ float: none!important;
     .popup-languages.slide .btn-cancel.right
     {
 	    float: right;
-    }    
+    }
 	#chooseMultilang, #cancelMultilang {
 		padding: 4px 18px;
 		margin-left: 10px;
@@ -1404,7 +1404,7 @@ margin:0 auto; overflow:hidden; width:100%;
 		background: #fff;
 		padding: 0 0 30px;
 			font-size:16px;
-		
+
 
 }
 
@@ -1594,8 +1594,8 @@ body.cattool .mgmt-tm.mine thead,
 }
 
 .btn-grey .text,
-.canceladdtmx.btn-grey .text, 
-.addtmxfile.btn-ok .text, 
+.canceladdtmx.btn-grey .text,
+.addtmxfile.btn-ok .text,
 .uploadtm.btn-ok .text
 
  {width: 90px;
@@ -1607,7 +1607,7 @@ text-align: center;}
 }
 
 .canceladdtmx.btn-grey .text,
-.addtmxfile.btn-ok .text, 
+.addtmxfile.btn-ok .text,
 .uploadtm.btn-ok .text {
 	color:#fff;
 }
@@ -1653,7 +1653,7 @@ text-align: center;}
     box-shadow: 0px 0px 0px 1px #ccc;
     cursor: text;
 }
- 
+
  .canceladdtmx.btn-grey:hover{background:#d1581c;}
 .addtmxfile.btn-ok:hover {background:#00A8D2;}
 
@@ -2144,7 +2144,7 @@ background-size: 25px!important;
         background-color: #efefef;
 }
 
-.format-box:nth-child(3) h3, 
+.format-box:nth-child(3) h3,
 .format-box:nth-child(4) h3 {
   padding: 0 15px;
 }
@@ -2458,13 +2458,13 @@ tr.new.badgrants .fileupload
 #inactivetm .dataTables_empty {
     display: none;
 }
-#activetm .startUploading, 
+#activetm .startUploading,
 #inactivetm .startUploading
 {
     background: url(../img/loading.gif) 77.5% 16px no-repeat !important;
 background-size: 2% !important;
 }
-#activetm .uploadprogress, 
+#activetm .uploadprogress,
 #inactivetm .uploadprogress {
     display: none;
     margin-right: 8px;
@@ -2542,7 +2542,7 @@ color: green;
 	float: right !important;
 	margin-right: 8% !important;
 	margin-top: -5px !important;
-}    
+}
 .searchbox .block.right .block
 {
 	margin-right: 0px;
@@ -2556,7 +2556,7 @@ color: green;
 .searchbox .block.vcentered
 {
 	padding-top: 7px !important;
-}        
+}
 .searchbox #exec-replace
 {
 	/*float: none;*/
@@ -2713,7 +2713,7 @@ only screen and (min--moz-device-pixel-ratio: 2),
 only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (min-device-pixel-ratio: 2),
 only screen and (min-resolution: 192dpi),
-only screen and (in-resolution: 2dppx) { 
+only screen and (in-resolution: 2dppx) {
 	.preview span {height: 30px;width: 30px;display: block;background-size: 25px;}
     .extdoc {background: url(../img/matecat_file_icons2x.png) 6px 0 no-repeat !important;} /* .doc, .dot, . docx, .dotx, .docm, .dotm, .odt, .sxw*/
     .extppt {background: url(../img/matecat_file_icons2x.png) 6px -34px no-repeat !important;} /* .pot, .pps, .ppt, .potm, .potx, .ppsm, .ppsx, .pptm, .pptx, .odp, .sxi*/
@@ -2748,14 +2748,14 @@ only screen and (in-resolution: 2dppx) {
 
 .popup {background: #fff url(../img/borderfix.png) repeat-x!important;}
 
-	
 
-   
+
+
 .sub-editor .gl-search .search-glossary
 {
 	background: url(../img/searchgl-black2x.png) no-repeat;
 	background-size: 20px;
-}  
+}
 
 .fileinput-button {
 	background: #09beec;
@@ -2867,7 +2867,7 @@ color: #000;
     color: #444!important;
 }
 
-.autofillTag:hover, 
+.autofillTag:hover,
 .autofillTag.active {
     color: #999!important;
 }
@@ -2875,7 +2875,7 @@ color: #000;
 .autofillTag:before {
     content: "\e23a";
     font-size: 19px;
-    display: block;    
+    display: block;
 }
 /*
 /* mbc extend iconmoon set with icons for matecat chat
@@ -2905,8 +2905,8 @@ color: #000;
 .splitbtn:before,
 .x-popup:before,
 .x-popup2:before,
-.popup .x-popup:before, 
-.mgmt-panel .x-popup:before, 
+.popup .x-popup:before,
+.mgmt-panel .x-popup:before,
 .popup-tm .x-popup:before,
 .noticon:after,
 .sub-editor .gl-search .set-glossary:before,
@@ -2915,7 +2915,7 @@ a.cancel-project:before,
 a.archive-project:before,
 a.resume-project:before,
 a.unarchive-project:before,
-a.unarchive-project:after, 
+a.unarchive-project:after,
 a.resume-project:after,
 .splitpoint:before,
 .mergebtn:before,
@@ -3017,7 +3017,7 @@ body.tagModes .splitArea .locked.selfClosingTag:before,
 body.tagModes:not(.tagmode-default-extended) .suggestion_source .locked.selfClosingTag:before,
 body.tagModes:not(.tagmode-default-extended) .translation .locked.selfClosingTag:before
 {
-content: "\e603";	
+content: "\e603";
 visibility: visible;
 position: absolute;
 font-size: 10px;
@@ -3174,7 +3174,7 @@ float: left;
 }
 
 .graysmall:hover .trash:before {
-    content: "\f014"; 
+    content: "\f014";
 }
 
 .more:before {
@@ -3285,7 +3285,7 @@ float: right;
 margin-left: 10px;
 }
 
-th.privatekey.tablesorter-header:hover, 
+th.privatekey.tablesorter-header:hover,
 th.owner.tablesorter-header:hover,
 th.description.tablesorter-header:hover {
 box-shadow: inset 0px 0px 8px #333;
@@ -3662,7 +3662,7 @@ background: #3aa9dd!important;
     color: #3aa9dd;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 header, .wrapper-claim, .wrapper-upload, footer, #SnapABug_Button, #template-upload, #template-download {display: none;}
 .nobrowser {display: block!important;}
 .iepopup.nobrowser {width:100%;}
@@ -3702,4 +3702,50 @@ width: 250px;
         display:none;
     }
 
+}
+
+.custom .left,
+.custom .right {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+
+.custom .left {
+  width: 90%;
+  text-align: left;
+}
+
+.custom .right {
+  width: 10%;
+  text-align: center;
+  font-size: 1.0rem;
+  font-weight: bold;
+  padding: 1.0rem 0;
+}
+
+.custom .left h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0 1.0rem;
+  text-align: center;
+  color: #003366;
+}
+
+.custom .left .issues .item {
+  padding: 1.0rem;
+}
+
+.custom .left .issues .item:hover {
+  background: #EEE;
+}
+
+.custom .left .issues .item a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.custom .left .issues .item a:hover {
+  color: #003366;
 }

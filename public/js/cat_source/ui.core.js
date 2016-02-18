@@ -476,6 +476,10 @@ UI = {
             var d = JSON.parse( UI.getFromStorage('contribution-' + config.job_id + '-' + sid ) );
 			UI.processContributions( d, segment );
 		}
+
+    if( !$('.custom .left .item').length ) {
+      UI.getCustomData();
+    }
 	},
 
     createHeader: function(forceCreation) {
