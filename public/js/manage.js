@@ -11,7 +11,7 @@ UI = {
         this.firstLoad = firstLoad;
         this.pageStep = 25;
         this.isMac = (navigator.platform == 'MacIntel')? true : false;
-        
+
         var page = location.pathname.split('/')[2];
         this.page = ('undefined'==typeof(page)||page == '')? 1 : parseInt(page);
 
@@ -27,7 +27,7 @@ UI = {
             if(typeof this.filters.pn != 'undefined') {
                 $('#search-projectname').val(this.filters.pn);
             };
-        	
+
             if(typeof this.filters.source != 'undefined') {
                 $('#select-source option').each(function(){
                     if($(this).attr('value') == UI.filters.source) {
@@ -43,7 +43,7 @@ UI = {
                         $('#select-target option[selected=selected]').removeAttr('selected');
                         $(this).attr('selected','selected');
                     }
-                })    	
+                })
             };
 
             if(typeof this.filters.status != 'undefined') {
@@ -51,7 +51,7 @@ UI = {
                 $('#select-status option[value='+this.filters.status+']').attr('selected','selected');
             } else {
                 $('#select-status option[selected=selected]').removeAttr('selected');
-                $('#select-status option[value=active]').attr('selected','selected');        		
+                $('#select-status option[value=active]').attr('selected','selected');
             };
 
             if(typeof this.filters.onlycompleted != 'undefined') {
@@ -68,13 +68,13 @@ UI = {
 		this.body.attr('data-filter-status',status);
 		this.getProjects('standard');
     },
-    
+
     init: function() {
 
-		this.body.on('click','.message a.undo',function(e) {  
+		this.body.on('click','.message a.undo',function(e) {
 	        e.preventDefault();
 			UI.applyUndo();
-	    }).bind('keydown','Meta+f', function(e){ 
+	    }).bind('keydown','Meta+f', function(e){
             e.preventDefault();
 	        $('body').addClass('filterOpen');
 	        $('#search-projectname').focus();
@@ -121,14 +121,14 @@ UI = {
 	        UI.changeJobsStatus('job',$(this).parents('tr'),'active');
         }).on('click','a.cancel-project',function(e) {
 	        e.preventDefault();
-	        UI.changeJobsStatus('prj',$(this).parents('.article'),'cancelled');		
+	        UI.changeJobsStatus('prj',$(this).parents('.article'),'cancelled');
 	    }).on('click','a.archive-project',function(e) {
 	        e.preventDefault();
-	        UI.changeJobsStatus('prj',$(this).parents('.article'),'archived');		
-	    }).on('click','a.resume-project',function(e) { 
+	        UI.changeJobsStatus('prj',$(this).parents('.article'),'archived');
+	    }).on('click','a.resume-project',function(e) {
 	        e.preventDefault();
-	        UI.changeJobsStatus('prj',$(this).parents('.article'),'active','cancelled');		
-	    }).on('click','a.unarchive-project',function(e) { 
+	        UI.changeJobsStatus('prj',$(this).parents('.article'),'active','cancelled');
+	    }).on('click','a.unarchive-project',function(e) {
 	        e.preventDefault();
 	        UI.changeJobsStatus('prj',$(this).parents('.article'),'active','archived');
 	    }).on('click','.meter a',function(e) {
@@ -139,7 +139,7 @@ UI = {
 			UI.getProjects('page');
 		});
 
-	    $('header .filter').click(function(e) {    
+	    $('header .filter').click(function(e) {
 	        e.preventDefault();
 	        $('body').toggleClass('filterOpen');
 	        $('#search-projectname').focus();
@@ -166,13 +166,21 @@ UI = {
 	        $('body').addClass('filterOpen');
 	        $('#select-target').focus();
 		});
-	
-	    $('.searchbox #exec-filter').click(function(e) {    
+
+	    $('.searchbox #exec-filter').click(function(e) {
 	        e.preventDefault();
 	        UI.applyFilter();
 	    });
-	
-	    $('.searchbox #clear-filter').click(function(e) {    
+
+      $("a.history").click(function(e) {
+          $(".filterHistoryBG").show();
+      });
+
+      $(".filterHistoryBG").mouseup(function(e) {
+          $(".filterHistoryBG").hide();
+      });
+
+	    $('.searchbox #clear-filter').click(function(e) {
 	        e.preventDefault();
 	        $('body').removeClass('filterOpen filterActive').attr('data-filter-status','active');
 	        UI.filters = {};
@@ -181,18 +189,18 @@ UI = {
 	        UI.getProjects('standard');
 	    });
 
-	    $('.searchbox #show-archived, .searchbox #show-cancelled').click(function(e) {   
+	    $('.searchbox #show-archived, .searchbox #show-cancelled').click(function(e) {
 	        if ($(this).is(':checked')) {
-		        $('.searchbox #only-completed').removeAttr('checked');        	
+		        $('.searchbox #only-completed').removeAttr('checked');
 	        }
 	    });
-	    $('.searchbox #only-completed').click(function(e) {    
+	    $('.searchbox #only-completed').click(function(e) {
 	        if ($(this).is(':checked')) {
-		        $('.searchbox #show-archived, .searchbox #show-cancelled').removeAttr('checked');        	
+		        $('.searchbox #show-archived, .searchbox #show-cancelled').removeAttr('checked');
 	        }
 	    });
 
-
+      this.renderStoreFilter();
 
 	},
 
@@ -266,8 +274,57 @@ UI = {
         this.filters['filter'] = 1;
 
         this.page = 1;
-		this.getProjects('filter');
-		this.body.addClass('filterActive');
+		    this.getProjects('filter');
+		    this.body.addClass('filterActive');
+
+        this.storeFilter();
+    },
+
+    storeFilter: function() {
+      var actualFilter = {
+        pn: this.filters['pn'],
+        source: this.filters['source'],
+        target: this.filters['target'],
+        status: this.filters['status'],
+        onlycompleted: this.filters['onlycompleted']
+      };
+
+      var filterHistory = [];
+
+      if(localStorage['filterHistory']) {
+        filterHistory = JSON.parse(localStorage['filterHistory']);
+      }
+
+      filterHistory.unshift(actualFilter);
+
+      localStorage['filterHistory'] = JSON.stringify(filterHistory);
+
+      this.renderStoreFilter();
+    },
+
+    renderStoreFilter: function() {
+      var filterHistory = JSON.parse(localStorage['filterHistory']);
+
+      $('.filterHistory').html('');
+
+      for(var f in filterHistory){
+        var txSource = $('#select-source option[value="' + filterHistory[f].source + '"]').text();
+        var txTarget = $('#select-target option[value="' + filterHistory[f].target + '"]').text();
+
+        var div = document.createElement('div');
+        div.setAttribute('class', 'item');
+        var a = document.createElement('a');
+        a.setAttribute('href', '#pn=' + filterHistory[f].pn + ',source=' + filterHistory[f].source + ',target=' + filterHistory[f].target + ',status=' + filterHistory[f].status + ',filter=1');
+        var tx = document.createTextNode('Show ' + filterHistory[f].status + ' projects having "' + filterHistory[f].pn + '" in the name, ' + txSource + ' as source language, ' + txTarget + ' as target language');
+        a.appendChild(tx);
+        div.appendChild(a);
+
+        $('.filterHistory').append(div);
+      }
+
+      $(".filterHistory .item a").click(function(e) {
+          location.reload(true);
+      });
     },
 
     applyUndo: function() {
@@ -779,7 +836,7 @@ UI = {
             })
         });
 
-			newProject +='		</tbody>'+	
+			newProject +='		</tbody>'+
 	        '    </table>'+
             '</div>';
 
@@ -791,7 +848,7 @@ UI = {
             $( '.article[data-pid=' + d[0].id + ']' ).replaceWith( projects );
         } else {
 	        if(projects == '') projects = '<p class="article msg">No projects found for these filter parameters.<p>';
-	        $('#projects').html(projects);        	        	
+	        $('#projects').html(projects);
         }
 
         //fit Text for long project names
@@ -808,28 +865,28 @@ UI = {
 			$('.pagination').empty();
 		}
 	},
-	
+
     setTablesorter: function() {
 	    $(".tablesorter").tablesorter({
-	        textExtraction: function(node) { 
-	            // extract data from markup and return it  
+	        textExtraction: function(node) {
+	            // extract data from markup and return it
 	            if($(node).hasClass('create-date')) {
 	            	return $(node).data('date');
 	            } else {
 	            	return $(node).text();
 	            }
-	        }, 
-	        headers: { 
-	            1: { 
-	                sorter: false 
-	            }, 
-	            4: { 
-	                sorter: false 
+	        },
+	        headers: {
+	            1: {
+	                sorter: false
+	            },
+	            4: {
+	                sorter: false
 	            },
 				5: {
 					sorter: false
 				}
-	        }			    	
+	        }
 	    });
     },
 
@@ -859,7 +916,7 @@ UI = {
 			//UI.getOutsourceQuotes();
 			return;
 		}
-	
+
 		$.ajax({
 			async: true,
 	  		type: "POST",

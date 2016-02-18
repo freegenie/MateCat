@@ -2216,7 +2216,6 @@ background-size: 25px!important;
 body.filterOpen .searchbox
 {
 	display: block;
-    z-index: 0;
 	}
 
 	.searchbox label, .mgmt-panel label
@@ -3732,7 +3731,8 @@ width: 250px;
   color: #003366;
 }
 
-.custom .left .issues .item {
+.custom .left .issues .item,
+.filterHistory .item {
   padding: 1.0rem;
 }
 
@@ -3740,7 +3740,8 @@ width: 250px;
   background: #EEE;
 }
 
-.custom .left .issues .item a {
+.custom .left .issues .item a,
+.filterHistory .item a {
   color: black;
   font-weight: bold;
   text-decoration: none;
@@ -3748,4 +3749,44 @@ width: 250px;
 
 .custom .left .issues .item a:hover {
   color: #003366;
+}
+
+.searchbox a.history {
+  display: inline-block;
+  line-height: 25px;
+  text-decoration: none;
+  color: #003366;
+  margin-left: 2.0rem;
+}
+
+.filterHistoryBG {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 9999999999;
+  text-align: center;
+}
+
+.filterHistory {
+  width: 100%;
+  max-width: 1000px;
+  margin: 1.0rem auto;
+  background: #4D4D4D;
+  text-align: left;
+}
+
+.filterHistory .item:hover {
+  background: #6D6D6D;
+}
+
+.filterHistory .item a {
+  color: white;
+}
+
+.filterHistory .item a:hover {
+  color: #00FFFF;
 }

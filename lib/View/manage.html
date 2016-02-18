@@ -35,7 +35,7 @@
     <body tal:condition="supportedBrowser" tal:attributes="class php:(filtered_class EQ ' open')? 'manage filterOpen':'manage'">
 <!--metal:use-macro="header.html/main_header"-->
         <header>
-            <div class="wrapper">   
+            <div class="wrapper">
                 <a href="${basepath}" class="logo"></a>
                 <span id="display"></span>
                 <a href="#" class="filter"> <span class="arrow-top "></span></a>
@@ -45,20 +45,20 @@
             </div>
         </header>
 
-      
+
 		<div tal:attributes="class string:searchbox${filtered_class}">
 			<form>
 
 			<div class="block right">
-				<input id="exec-filter" type="submit" class="btn" value="FILTER" />			
-				<!--input id="clear-filter" type="button" class="btn" value="CLEAR" /-->			
+				<input id="exec-filter" type="submit" class="btn" value="FILTER" />
+				<!--input id="clear-filter" type="button" class="btn" value="CLEAR" /-->
 			</div>
 
 			<div class="block">
 				<label for="search-projectname">Project name</label>
-				<input id="search-projectname" class="search-input" type="text" value=""/>				
+				<input id="search-projectname" class="search-input" type="text" value=""/>
 			</div>
-			
+
 			<div class="block">
 				<label for="select-source">Source</label>
 				<select id="select-source" class="search-select" >
@@ -66,7 +66,7 @@
 					<tal:block tal:repeat="language languages">
 						<option tal:attributes="value language/code" tal:content="language/name">---</option>
 					</tal:block>
-				</select>  	
+				</select>
 			</div>
 
 			<div class="block">
@@ -76,7 +76,7 @@
 					<tal:block tal:repeat="language languages">
 						<option tal:attributes="value language/code" tal:content="language/name">---</option>
 					</tal:block>
-				</select>  	
+				</select>
 			</div>
 
 			<div class="block">
@@ -85,8 +85,12 @@
 					<option value="active">Active</option>
 					<option value="archived">Archived</option>
 					<option value="cancelled">Cancelled</option>
-				</select>  	
+				</select>
 			</div>
+
+			<div class="block">
+        <a class="history" href="javascript:void(0)">View History</a>
+      </div>
 <!--
 			<div class="block">
 				<input id="only-completed" type="checkbox" />
@@ -97,7 +101,7 @@
 				<input id="show-archived" type="checkbox" />
 				<label for="show-archived">Show Archived</label>
 			</div>
-			
+
 			<div class="block">
 				<input id="show-cancelled" type="checkbox" />
 				<label for="show-cancelled">Show Cancelled</label>
@@ -111,20 +115,20 @@
             <!--	<h1>Field test - 1</h1> -->
 
             <h1>Projects List</h1>
-            
+
             <div id="projects"></div>
 
 <!--
 			<div class="pagination" style="float: right">
 				<a class="previous" tal:condition="prev_page" href="${basepath}manage/${prev_page}/">Previous</a>
-				<a class="next" tal:condition="next_page" href="${basepath}manage/${next_page}/">Next</a>		
+				<a class="next" tal:condition="next_page" href="${basepath}manage/${next_page}/">Next</a>
 			</div>
 -->
 
 <!--
 			<div class="pagination" style="float: right">
 				<a class="previous" tal:condition="prev_page" href="${basepath}manage/${prev_page}/">Previous</a>
-				<a class="next" tal:condition="next_page" href="${basepath}manage/${next_page}/">Next</a>		
+				<a class="next" tal:condition="next_page" href="${basepath}manage/${next_page}/">Next</a>
 			</div>
 -->
         </div>
@@ -142,7 +146,7 @@
                             <span tal:content='logged_user'></span> (<a id='logoutlink' href='#'>logout</a>)
                         </div>
                     </tal:block>
-                </nav>                
+                </nav>
 
             </div>
         </footer>
@@ -152,5 +156,10 @@
 
     <div metal:use-macro="cookiebanner.html/cookieBanner"/>
 
-    </body> 
+    <div class="filterHistoryBG">
+      <div class="filterHistory">
+      </div>
+    </div>
+
+    </body>
 </html>
